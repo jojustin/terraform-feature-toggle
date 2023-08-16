@@ -1,0 +1,431 @@
+{
+  "environments": [
+    {
+      "name": "Dev",
+      "environment_id": "dev",
+      "description": "Environment created on instance creation",
+      "tags": "",
+      "color_code": "#FDD13A",
+      "features": [
+        {
+          "name": "kms_config",
+          "feature_id": "kms_config",
+          "description": "",
+          "tags": "",
+          "type": "STRING",
+          "format": "JSON",
+          "enabled_value": {
+            "crk_id": "<root key id>",
+            "instance_id": "<guid of KMS instance>",
+            "private_endpoint": true
+          },
+          "disabled_value": {},
+          "segment_rules": [
+            {
+              "rules": [
+                {
+                  "segments": [
+                    "lldbwfd1"
+                  ]
+                }
+              ],
+              "value": "$default",
+              "order": 1,
+              "rollout_percentage": 100
+            },
+            {
+              "rules": [
+                {
+                  "segments": [
+                    "lldbvrbj"
+                  ]
+                }
+              ],
+              "value": {
+                "crk_id": "11f0ed9e-3925-4646-bf03-41509ede20e1",
+                "instance_id": "d25c6637-8aee-4296-bb5c-a48d49e85b99",
+                "private_endpoint": false
+              },
+              "order": 2,
+              "rollout_percentage": "$default"
+            },
+            {
+              "rules": [
+                {
+                  "segments": [
+                    "lldbv515"
+                  ]
+                }
+              ],
+              "value": {
+                "crk_id": "test",
+                "instance_id": "instance_id",
+                "private_endpoint": "private_endpoint"
+              },
+              "order": 3,
+              "rollout_percentage": 100
+            }
+          ],
+          "collections": [
+            {
+              "collection_id": "iac",
+              "name": "iac"
+            }
+          ],
+          "enabled": true,
+          "rollout_percentage": 100,
+          "isOverridden": true
+        }
+      ],
+      "properties": [
+        {
+          "name": "pool_label",
+          "property_id": "pool_label",
+          "description": "",
+          "tags": "",
+          "type": "STRING",
+          "format": "TEXT",
+          "value": "iac-dev-pool",
+          "segment_rules": [],
+          "collections": [
+            {
+              "collection_id": "iac",
+              "name": "iac"
+            }
+          ],
+          "isOverridden": true
+        },
+        {
+          "name": "pool_size",
+          "property_id": "pool_size",
+          "description": "",
+          "tags": "",
+          "type": "NUMERIC",
+          "value": 1,
+          "segment_rules": [],
+          "collections": [
+            {
+              "collection_id": "iac",
+              "name": "iac"
+            }
+          ],
+          "isOverridden": true
+        },
+        {
+          "name": "prefix",
+          "property_id": "prefix",
+          "description": "",
+          "tags": "",
+          "type": "STRING",
+          "format": "TEXT",
+          "value": "test",
+          "segment_rules": [],
+          "collections": [
+            {
+              "collection_id": "iac",
+              "name": "iac"
+            }
+          ],
+          "isOverridden": true
+        },
+        {
+          "name": "vpc_cluster_flavor",
+          "property_id": "vpc_cluster_flavor",
+          "description": "",
+          "tags": "",
+          "type": "STRING",
+          "format": "TEXT",
+          "value": "bx2.2x8",
+          "segment_rules": [
+            {
+              "rules": [
+                {
+                  "segments": [
+                    "lldbvrbj",
+                    "lldbv515"
+                  ]
+                }
+              ],
+              "value": "$default",
+              "order": 1
+            },
+            {
+              "rules": [
+                {
+                  "segments": [
+                    "lldbwfd1"
+                  ]
+                }
+              ],
+              "value": "bx2.4x16",
+              "order": 2
+            }
+          ],
+          "collections": [
+            {
+              "collection_id": "iac",
+              "name": "iac"
+            }
+          ],
+          "isOverridden": true
+        },
+        {
+          "name": "vpc_config",
+          "property_id": "vpc_config",
+          "description": "",
+          "tags": "",
+          "type": "STRING",
+          "format": "JSON",
+          "value": {
+            "name": "vpc",
+            "zones": [
+              "1",
+              "2",
+              "3"
+            ]
+          },
+          "segment_rules": [],
+          "collections": [
+            {
+              "collection_id": "iac",
+              "name": "iac"
+            }
+          ],
+          "isOverridden": true
+        },
+        {
+          "name": "worker_count",
+          "property_id": "worker_count",
+          "description": "",
+          "tags": "",
+          "type": "NUMERIC",
+          "value": 1,
+          "segment_rules": [],
+          "collections": [
+            {
+              "collection_id": "iac",
+              "name": "iac"
+            }
+          ],
+          "isOverridden": true
+        }
+      ]
+    },
+    {
+      "name": "stage",
+      "environment_id": "stage",
+      "description": "",
+      "tags": "",
+      "color_code": "#b0f763",
+      "features": [
+        {
+          "name": "kms_config",
+          "feature_id": "kms_config",
+          "description": "",
+          "tags": "",
+          "type": "STRING",
+          "format": "JSON",
+          "enabled_value": {
+            "crk_id": "<root key id>",
+            "instance_id": "<guid of KMS instance>",
+            "private_endpoint": true
+          },
+          "disabled_value": {},
+          "segment_rules": [
+            {
+              "rules": [
+                {
+                  "segments": [
+                    "lldbwfd1"
+                  ]
+                }
+              ],
+              "value": "$default",
+              "order": 1,
+              "rollout_percentage": 100
+            },
+            {
+              "rules": [
+                {
+                  "segments": [
+                    "lldbvrbj",
+                    "lldbv515"
+                  ]
+                }
+              ],
+              "value": {
+                "crk_id": "d934e29b-52f9-458d-ae28-6cf152014eb2",
+                "instance_id": "6e50b8be-03a1-4233-9b4f-5da343378757",
+                "private_endpoint": false
+              },
+              "order": 2,
+              "rollout_percentage": 100
+            }
+          ],
+          "collections": [
+            {
+              "collection_id": "iac",
+              "name": "iac"
+            }
+          ],
+          "enabled": false,
+          "rollout_percentage": 100,
+          "isOverridden": true
+        }
+      ],
+      "properties": [
+        {
+          "name": "pool_label",
+          "property_id": "pool_label",
+          "description": "",
+          "tags": "",
+          "type": "STRING",
+          "format": "TEXT",
+          "value": "iac-stage-pool",
+          "segment_rules": [],
+          "collections": [
+            {
+              "collection_id": "iac",
+              "name": "iac"
+            }
+          ],
+          "isOverridden": true
+        },
+        {
+          "name": "pool_size",
+          "property_id": "pool_size",
+          "description": "",
+          "tags": "",
+          "type": "NUMERIC",
+          "value": 3,
+          "segment_rules": [],
+          "collections": [
+            {
+              "collection_id": "iac",
+              "name": "iac"
+            }
+          ],
+          "isOverridden": true
+        },
+        {
+          "name": "prefix",
+          "property_id": "prefix",
+          "description": "",
+          "type": "STRING",
+          "format": "TEXT",
+          "value": "",
+          "segment_rules": [],
+          "collections": [
+            {
+              "collection_id": "iac",
+              "name": "iac"
+            }
+          ],
+          "isOverridden": false
+        },
+        {
+          "name": "vpc_cluster_flavor",
+          "property_id": "vpc_cluster_flavor",
+          "description": "",
+          "type": "STRING",
+          "format": "TEXT",
+          "value": "",
+          "segment_rules": [],
+          "collections": [
+            {
+              "collection_id": "iac",
+              "name": "iac"
+            }
+          ],
+          "isOverridden": false
+        },
+        {
+          "name": "vpc_config",
+          "property_id": "vpc_config",
+          "description": "",
+          "type": "STRING",
+          "format": "JSON",
+          "value": {},
+          "segment_rules": [],
+          "collections": [
+            {
+              "collection_id": "iac",
+              "name": "iac"
+            }
+          ],
+          "isOverridden": false
+        },
+        {
+          "name": "worker_count",
+          "property_id": "worker_count",
+          "description": "",
+          "type": "NUMERIC",
+          "value": 0,
+          "segment_rules": [],
+          "collections": [
+            {
+              "collection_id": "iac",
+              "name": "iac"
+            }
+          ],
+          "isOverridden": false
+        }
+      ]
+    }
+  ],
+  "collections": [
+    {
+      "name": "iac",
+      "collection_id": "iac",
+      "description": "iac",
+      "tags": "iac"
+    }
+  ],
+  "segments": [
+    {
+      "name": "us-south",
+      "segment_id": "lldbwfd1",
+      "description": "",
+      "tags": "",
+      "rules": [
+        {
+          "values": [
+            "us-south"
+          ],
+          "operator": "is",
+          "attribute_name": "region"
+        }
+      ]
+    },
+    {
+      "name": "au-syd",
+      "segment_id": "lldbvrbj",
+      "description": "",
+      "tags": "",
+      "rules": [
+        {
+          "values": [
+            "au-syd"
+          ],
+          "operator": "is",
+          "attribute_name": "region"
+        }
+      ]
+    },
+    {
+      "name": "eu-gb",
+      "segment_id": "lldbv515",
+      "description": "",
+      "tags": "",
+      "rules": [
+        {
+          "values": [
+            "eu-gb"
+          ],
+          "operator": "is",
+          "attribute_name": "region"
+        }
+      ]
+    }
+  ]
+}
