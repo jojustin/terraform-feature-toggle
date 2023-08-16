@@ -15,21 +15,21 @@ This sample encompasses the following capabilities:
 ## Folder structure
 The details of the folder structure in this repository is as below - 
 
-├── LICENSE
-├── README.md
-├── appconfig-python  - Folder to contain the appconfiguration SDK code.
-│   ├── app.py - Invokes app configuration sdk and writes the output to a file config.json
-│   ├── config.json - Contains the evaluated features & properties
-│   ├── python_logs.txt - Logs generated out of the appconfig SDK code.
-│   └── sdk.py - Init & Evaluation of features and properties
-├── setup
-│   └── exportedconfig.json - Exported config to setup App Configuration instance
-├── main.tf - Terraform main file to deploy the infrastructure with feature toggle usage
-├── outputs.tf - Outputs of the terraform deployment
-├── providers.tf - Provider Configuration
-├── variables.tf - Input variable definition
-└── version.tf - Manages terraform versions
-
+- __terraform\-feature\-toggle__
+   - [LICENSE](LICENSE)
+   - [README.md](README.md)
+   - __appconfig\-python__ - Folder to contain the appconfiguration SDK code.
+     - [app.py](appconfig-python/app.py) - Invokes app configuration sdk and writes the output to a file config.json
+     - [config.json](appconfig-python/config.json) - Contains the evaluated features & properties
+     - [python\_logs.txt](appconfig-python/python_logs.txt) - Logs generated out of the appconfig SDK code.
+     - [sdk.py](appconfig-python/sdk.py) - Init & Evaluation of features and properties
+   - [main.tf](main.tf) - Terraform main file to deploy the infrastructure with feature toggle usage
+   - [outputs.tf](outputs.tf) - Outputs of the terraform deployment
+   - [providers.tf](providers.tf) - Provider Configuration
+   - __setup__
+     - [exportedconfig.json](setup/exportedconfig.json) - File that can be used to import IBM Cloud App Configuration features & properties
+   - [variables.tf](variables.tf) - Input variable definition
+   - [version.tf](version.tf) - Manages terraform versions
 
 ## Setup Instructions
 
