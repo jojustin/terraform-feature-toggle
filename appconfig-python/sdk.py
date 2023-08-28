@@ -10,17 +10,17 @@ def initialize(region, guid, apikey, collection_id, environment_id):
     appconfig_client.set_context(collection_id=collection_id,
                                  environment_id=environment_id)
 
-def get_config_json(entity_id, entity_attributes):
-    worker_count_value = get_property(entity_id, "worker_count")
-    vpc_cluster_flavor = get_property(entity_id, "vpc_cluster_flavor", entity_attributes)
-    prefix = get_property(entity_id, "prefix")
+def get_config_json(entity_id, entity_attributes, appconfig_features, appconfig_properties):
+    appconfig_dictionary = {}
+    for feat in appconfig_features:
+        feat_value = get_feature(entity_id, feat, entity_attributes)
+        appconfig_dictionary[feat] = feat_value
 
-    kms_config = get_feature(entity_id, "kms_config", entity_attributes)
-    dictionary = {'worker_count': worker_count_value,
-                  "vpc_cluster_flavor": vpc_cluster_flavor,
-                  "prefix": prefix,
-                  "kms_config" : kms_config}    
-    jsonString = json.dumps(dictionary, indent=4)
+    for prop in appconfig_properties:
+        prop_value = get_property(entity_id, prop, entity_attributes)
+        appconfig_dictionary[prop] = prop_value
+    
+    jsonString = json.dumps(appconfig_dictionary, indent=4)
     return jsonString
 
 

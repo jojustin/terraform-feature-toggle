@@ -13,19 +13,6 @@ variable "appconfig_api_key" {
   sensitive   = true
 }
 
-
-variable "appconfig_init_param" {
-  type = object({
-    appconfig_id = string  # GUID of app configuration
-    appconfig_region = string # region of app configuration
-    appconfig_collection_id = string # collection id of app configuration
-    appconfig_environment_id = string # environment id of app configuration
-    entity_id = string # entity of app configuration for evaluation
-    entity_attributes = string # entity attribute of app configuration which used for evaluation
-  })
-  description = "Input parameteres to IBM Cloud App Configuration SDK"
-}
-
 variable "resource_group_id" {
   type        = string
   description = "Resource group ID where infra would be setup.  This RG should pre-exist"
@@ -39,14 +26,24 @@ variable "region" {
 }
 
 variable appconfig_features {
-  type    = string
-  description = "comma separated string of appconfig features to be evaluated"
-  default = ""
+  type    = list(string)
+  default = ["kms_config"]
 }
 
 variable appconfig_properties {
-  type    = string
-  description = "comma separated string of appconfig properties to be evaluated"
-  default = ""
+  type    = list(string)
+  default = ["worker_count", "vpc_cluster_flavor", "prefix"]
+}
+
+variable "appconfig_init_param" {
+  type = object({
+    appconfig_id = string
+    appconfig_region = string
+    appconfig_collection_id = string
+    appconfig_environment_id = string
+    entity_id = string
+    entity_attributes = string
+  })
+  description = "Input parameteres to IBM Cloud App Configuration SDK"
 }
 
