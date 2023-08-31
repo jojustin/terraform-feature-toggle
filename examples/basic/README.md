@@ -76,5 +76,5 @@ Import the configuration using the below command -
 
 | Name | Description |
 |------|-------------|
-| <a name="output_configjson"></a> [configjson](#output\_configjson) | ############################################################################# Outputs ############################################################################# |
+| <a name="output_configjson"></a> [configjson](#output\_configjson) | Evaluated values from IBM Cloud App Configuration |
 <!-- END_TF_DOCS -->

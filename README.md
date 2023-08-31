@@ -64,5 +64,5 @@ module "appconfig" {
 
 | Name | Description |
 |------|-------------|
-| <a name="output_configjson"></a> [configjson](#output\_configjson) | config json from App Configuration as output |
+| <a name="output_configjson"></a> [configjson](#output\_configjson) | Evaluated values from App Configuration as output |
 <!-- END_TF_DOCS -->
